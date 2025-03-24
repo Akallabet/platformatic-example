@@ -12,7 +12,7 @@ primary_region = 'fra'
   PLT_SERVER_HOSTNAME = '0.0.0.0'
   PLT_SERVER_LOGGER_LEVEL = 'info'
   PLT_TYPESCRIPT = 'false'
-  PORT = '3402'
+  PORT = 8080
 
 [[mounts]]
   source = 'data'
