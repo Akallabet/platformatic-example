@@ -1,0 +1,12 @@
+{
+  "$schema": "https://schemas.platformatic.dev/@platformatic/composer/2.53.1.json",
+  "composer": {
+    "services": [
+      {
+        "id": "next"
+      }
+    ],
+    "refreshTimeout": 1000
+  },
+  "watch": true
+}
