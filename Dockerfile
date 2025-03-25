@@ -16,7 +16,10 @@ COPY package-lock.json ./
 # If this is not available in your Docker version, you can copy each package.json
 # file individually. like so:
 # COPY ./web/app/package.json ./web/app/package.json
-COPY --parents ./web/*/package.json ./
+# COPY --parents ./web/*/package.json ./
+
+COPY ./web/composer/package.json ./web/composer/package.json
+COPY ./web/next/package.json ./web/next/package.json
 
 # Install all dependencies (including dev dependencies)
 RUN --mount=type=cache,target=/root/.npm npm install
