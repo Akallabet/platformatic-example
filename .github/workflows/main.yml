@@ -61,4 +61,10 @@ jobs:
           subject-name: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME}}
           subject-digest: ${{ steps.push.outputs.digest }}
           push-to-registry: true
-      
+
+      - name: Deploy the app
+        uses: digitalocean/app_action/deploy@v2
+        env:
+           SAMPLE_DIGEST: ${{ steps.push.outputs.digest }}
+        with:
+           token: ${{ secrets.YOUR_DIGITALOCEAN_ACCESS_TOKEN_VARIABLE_NAME }}
