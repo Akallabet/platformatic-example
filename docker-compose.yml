@@ -1,25 +1,25 @@
 services:
-  postgresdb:
-    image: postgres:17-alpine
-    restart: unless-stopped
-    env_file: ./.env
-    environment:
-      - POSTGRES_USER=akallabeth
-      # - POSTGRES_PASSWORD=$POSTGRESDB_ROOT_PASSWORD
-      - POSTGRES_DB=ace
-    ports:
-      - 5432:5432
-    volumes:
-      - db:/var/lib/postgres
+  # postgresdb:
+  #   image: postgres:17-alpine
+  #   restart: unless-stopped
+  #   env_file: ./.env
+  #   environment:
+  #     - POSTGRES_USER=akallabeth
+  #     # - POSTGRES_PASSWORD=$POSTGRESDB_ROOT_PASSWORD
+  #     - POSTGRES_DB=ace
+  #   ports:
+  #     - 5432:5432
+  #   volumes:
+  #     - db:/var/lib/postgres
   app:
-    depends_on:
-      - postgresdb
-    image: ace-plt
+    # depends_on:
+    #   - postgresdb
+    image: plt-fly
     container_name: node-server
     environment:
-      DATABASE_URL: postgresql://akallabeth:@localhost:5432/ace
+      # DATABASE_URL: postgresql://akallabeth:@localhost:5432/ace
       PORT: 3402
-      PLT_SERVER_HOSTNAME: ${PLT_SERVER_HOSTNAME:-0.0.0.0}
+      PLT_SERVER_HOSTNAME: 0.0.0.0
       PLT_TYPESCRIPT: false
       # PLT_KEYCLOAK_BASE_URL: ${PLT_KEYCLOAK_BASE_URL}
       # PLT_KEYCLOAK_REALM: ${PLT_KEYCLOAK_REALM}
@@ -27,5 +27,5 @@ services:
       # PLT_KEYCLOAK_CLIENT_SECRET: ${PLT_KEYCLOAK_CLIENT_SECRET}
     ports:
       - 3402:3402
-volumes:
-  db:
+# volumes:
+#   db:

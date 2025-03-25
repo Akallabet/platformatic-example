@@ -10,9 +10,8 @@ primary_region = 'fra'
 
 [env]
   PLT_SERVER_HOSTNAME = '0.0.0.0'
-  PLT_SERVER_LOGGER_LEVEL = 'info'
+  PLT_SERVER_LOGGER_LEVEL = 'debug'
   PLT_TYPESCRIPT = 'false'
-  PORT = 8080
 
 [[mounts]]
   source = 'data'
